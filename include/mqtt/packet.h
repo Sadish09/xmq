@@ -62,14 +62,14 @@ struct Property {
 };
 
 /*
- * User Properties convenience: MQTT v5 allows multiple name/value pairs
- * where both are UTF-8 strings. We'll expose a map but keep insertion order
- * by storing vector<pair>.
+  User Properties convenience: MQTT v5 allows multiple name/value pairs
+  where both are UTF-8 strings. We'll expose a map but keep insertion order
+  by storing vector<pair>.
  */
 using UserPropertyList = std::vector<std::pair<std::string,std::string>>;
 
 /*
- * Common header elements
+  Common header elements
  */
 struct FixedHeader {
     PacketType type;
@@ -99,12 +99,12 @@ struct MqttPacket {
 };
 
 /*
- * CONNECT packet (high level fields)
- * - protocol name/version
- * - clean start
- * - keep alive
- * - properties
- * - payload: client id, will, user name, password
+  CONNECT packet (high level fields)
+  - protocol name/version
+  - clean start
+  - keep alive
+  - properties
+  - payload: client id, will, user name, password
  */
 struct MqttPacket::ConnectPacket {
     std::string protocol_name; // "MQTT"
@@ -121,9 +121,7 @@ struct MqttPacket::ConnectPacket {
     // will, username, password omitted for brevity
 };
 
-/*
- * CONNACK
- */
+//CONNACK
 struct MqttPacket::ConnAckPacket {
     ReasonCode reason_code;
     std::vector<Property> properties;
