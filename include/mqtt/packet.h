@@ -78,8 +78,7 @@ struct FixedHeader {
 };
 
 /*
- * Generic MqttPacket: a lightweight container for any control packet.
- * For richer handling we provide strong types below for commonly used packets.
+This is a generic version for a MQTT control poacket; for richer handling we provide strong types below for commonly used packets.
  */
 struct MqttPacket {
     FixedHeader header;
@@ -90,7 +89,7 @@ struct MqttPacket {
     struct ConnAckPacket;
     struct PublishPacket;
     struct AuthPacket;
-    // ... other packets omitted for brevity
+    // and some other packets which we will deal with later
 
     std::unique_ptr<ConnectPacket> connect;
     std::unique_ptr<ConnAckPacket> connack;
